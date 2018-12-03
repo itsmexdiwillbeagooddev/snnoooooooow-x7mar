@@ -69,6 +69,7 @@ client.on('ready', function(){
         i = i+j;
         client.user.setGame(setGame[i],`http://www.twitch.tv/Ninja`);
     }, ms);100000
+ });
 
 
 //dnd
