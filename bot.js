@@ -138,3 +138,37 @@ client.on('guildCreate', guild => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+client.login(process.env.BOT_TOKEN);
