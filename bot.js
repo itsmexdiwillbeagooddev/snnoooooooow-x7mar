@@ -25,29 +25,28 @@ ti={}
 spee={};
 
 //source
+const Discord = require('discord.js');
+const client = new Discord.Client():
+
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  console.log('')
-  console.log('')
-  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-  console.log(`[Start] ${new Date()}`);
-  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════════════════════════════]╗');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
-  console.log('Informations :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('╚[════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════]╗')
-  console.log(' Bot Is Online')
-  console.log('╚[════════════]╝')
-  console.log('')
-  console.log('')
+        console.log('╔[════════════]╗')
+        console.log(' Bot Is Online')
+        console.log('╚[════════════]╝')
+        console.log('')
+        console.log('╔[════════════════════════════════════]╗');
+        console.log('')
+        console.log(' Logged in as * [ " ${client.user.username} " ] ');
+        console.log( ' Welcome Bro , UserName * [ " ${client.user.username} " ]' );
+        console.log( Login in :  * [ " ${client.user.tag} " ]);
+        console.log('')
+        console.log('╚[════════════════════════════════════]╝')
+        console.log('')
+        console.log('╔[════════════]╗')
+        console.log('')
+        console.log( 'Have Fun - Snow Team  ')
+        console.log('')
+        console.log('╚[════════════]╝')
+        
 });
 
 
@@ -68,7 +67,7 @@ client.on('ready', function(){
         }
         i = i+j;
         client.user.setGame(setGame[i],`http://www.twitch.tv/Ninja`);
-    }, ms);100000
+    }, ms);30000
  });
 
 
