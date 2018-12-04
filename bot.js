@@ -34,7 +34,6 @@ client.on('ready', () => {
         console.log('')
         console.log(' Logged in as * [ " ${client.user.username} " ] ');
         console.log( ' Welcome Bro , UserName * [ " ${client.user.username} " ]' );
-        console.log( Login in   * [ " ${client.user.tag} " ]);
         console.log('')
         console.log('╚[════════════════════════════════════]╝')
         console.log('')
