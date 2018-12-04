@@ -99,11 +99,6 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 
 
-//dnd
-client.on('ready', () => {
-    client.user.setStatus("dnd");
- 
- });
 
 
 
