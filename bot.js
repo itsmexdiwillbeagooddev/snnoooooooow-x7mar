@@ -54,7 +54,7 @@ client.on('ready', () => {
 
 //streaming
 client.on('ready', function(){
-    var ms = 100000 ;
+    var ms = 30000 ;
     var setGame = [`Coming Soon !`,`Snow Bot ❆`];
     var i = -1;
     var j = 0;
