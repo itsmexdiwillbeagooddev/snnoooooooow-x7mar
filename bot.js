@@ -34,7 +34,6 @@ spee={};
 //console-streaming
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Coming Soon !`,"http://twitch.tv/Ninja")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
