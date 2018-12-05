@@ -488,6 +488,12 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
 
 
 
+
+
+
+
+
+
 //link
 client.on('message', message => {
     if (message.content.startsWith("رابط")) {
