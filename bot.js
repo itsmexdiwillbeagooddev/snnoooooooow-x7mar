@@ -488,7 +488,6 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
 
 
 
-
 //link
 client.on('message', message => {
     if (message.content.startsWith("رابط")) {
@@ -822,44 +821,30 @@ client.on('message', message => {
 
 
 //server-info
-client.on('message', function(msg) {
-  let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
-  let region = {
-      "brazil": "Brazil",
-      "eu-central": "Central Europe",
-      "singapore": "Singapore",
-      "Russia": "Russia",
-      "us-central": "U.S. Central",
-      "sydney": "Sydney",
-      "us-east": "U.S. East",
-      "us-south": "U.S. South",
-      "us-west": "U.S. West",
-      "eu-west": "Western Europe",
-      "vip-us-east": "VIP U.S. East",
-      "london": "London",
-      "amsterdam": "Amsterdam",
-      "hongkong": "Hong Kong"
-  };
- 
-  if(msg.content.startsWith ('-server')) {
-    let embed = new Discord.RichEmbed()
-    .setColor('#00FFF')
-    .setThumbnail(msg.guild.iconURL)
-    .setTitle(`${msg.guild.name}`)
-    .addField('**__ Server Name | اسم السيرفر__**',`[** __${msg.guild.name}__ **]`,true)
-    .addField('**__ OwnerShip | الاونر الاساسي__**',`**${msg.guild.owner}**`,true)
-    .addField('**__ Server ID | ايدي السيرفر__**',`**${msg.guild.id}**`,true)
-    .addField('**__ Members Count | عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
-    .addField('**__ Online | الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-    .addField('**__ Verification Level | مستوي الحمايه__**',`[** __${verifLevels[msg.guild.verificationLevel]}__** ]`,true)
-    .addField('**__ Region | البلد__**',`[** __${region[msg.guild.region]}__** ]`,true)
-    .addField('**__ Text Channels | رومات كتابيه__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-    .addField('**__ Voice Channels | رومات صوتيه__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-    .addField('**__ Created At | صنع في __**',msg.guild.createdAt.toLocaleString())
-    msg.channel.send({embed:embed});
-  }
-});
+client.on('message', message => {
+  var prefix ="/";
+if(message.content.startsWith(prefix +"server")){
+if(!message.channel.guild) return message.reply(' ');
+const millis = new Date().getTime() - message.guild.createdAt.getTime();
+const now = new Date();
+dateFormat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
+const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
+const days = millis / 1000 / 60 / 60 / 24;
+let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
+var embed  = new Discord.RichEmbed()
+.setAuthor(message.guild.name, message.guild.iconURL)
+.addField("**🆔 Server ID:**", message.guild.id,true)
+.addField("**📅 Created On**", message.guild.createdAt.toLocaleString(),true)
+.addField("**👑 Owned by**",`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)
+.addField("👥 Members ",`[${message.guild.memberCount}]`,true)
+.addField('**💬 Channels **',`**${message.guild.channels.filter(m => m.type === 'text').size}**` + ' text | Voice  '+ `**${message.guild.channels.filter(m => m.type === 'voice').size}** `,true)
+.addField("**🌍 Others **" , message.guild.region,true)
+.addField("** 🔐 Roles **",`**[${message.guild.roles.size}]** Role `,true)
+.setColor('#00FFF')
+message.channel.sendEmbed(embed)
 
+}
+});
 
 
 //my-invites
@@ -908,7 +893,7 @@ client.on('message' , message => {
  .setThumbnail(client.user.avatarURL)
  .setAuthor(message.author.username, message.author.avatarURL)
  .setTitle('Click Here To Invite The Bot')
- .setURL('https://discordapp.com/oauth2/authorize?client_id=519261519670935582&scope=bot&permissions=9')
+ .setURL('https://discordapp.com/oauth2/authorize?client_id=519838063992635392&scope=bot&permissions=9')
   message.channel.sendEmbed(embed);
    }
 });
@@ -920,7 +905,7 @@ client.on('message' , message => {
  .setThumbnail(client.user.avatarURL)
  .setAuthor(message.author.username, message.author.avatarURL)
  .setTitle('Click Here To Invite The Bot')
- .setURL('https://discordapp.com/oauth2/authorize?client_id=519261519670935582&scope=bot&permissions=9')
+ .setURL('https://discordapp.com/oauth2/authorize?client_id=519838063992635392&scope=bot&permissions=9')
   message.channel.sendEmbed(embed);
    }
 });
