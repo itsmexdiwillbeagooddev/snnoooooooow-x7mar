@@ -36,7 +36,7 @@ var ti={}
 
 //streaming dl bot
 client.on('ready', function(){
-    client.user.setStatus("Idle");
+    client.user.setStatus("dnd");
     var ms = 60000 ;
     var setGame = [`${client.guilds.size} Server`,'-help','Type -help',`${client.users.size} Members`,'-inv','Snow Bot ❄'];
     var i = -1;
