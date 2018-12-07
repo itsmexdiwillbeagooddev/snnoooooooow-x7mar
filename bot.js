@@ -51,6 +51,8 @@ client.on('ready', function(){
         i = i+j;
         client.user.setGame(setGame[i],`http://www.twitch.tv/Ninja`);
     }, ms);
+});
+
 
 
 ///consoledlbot
@@ -406,7 +408,7 @@ client.on("message", (message) => {
     
     
     
-    client.on("message", (message) => {
+client.on("message", (message) => {
     if (message.content.startsWith("-cv")) {
                 if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
             let args = message.content.split(" ").slice(1);
@@ -419,7 +421,7 @@ client.on("message", (message) => {
 
 
 
-    client.on('message', message => {      
+client.on('message', message => {      
         if (message.content.startsWith('-clear')) {
             if(!message.channel.guild) return message.reply('⛔ | This Command For Servers Only!');
                 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('⛔ | You dont have **MANAGE_MESSAGES** Permission!');
@@ -764,7 +766,6 @@ client.on("message", message => {
 
 
 
-  //mute
   //mute-unmute
 client.on('message', async message =>{
     var prefix = "-";
