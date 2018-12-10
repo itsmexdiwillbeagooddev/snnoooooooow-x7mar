@@ -511,39 +511,6 @@ client.on('message', async message => {
 });
 
 
-//vkick
-client.on("message", message => {
-    var prefix = "-";
-    const command = message.content.split(" ")[0];
- 
-    if(command == prefix+"vkick"){
- 
-        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
-            return message.reply('**you do not have permission to perform this action!** :snowflake: ');
-        }
- 
-        var member = message.guild.members.get(message.mentions.users.array()[0].id);
-        if(!message.mentions.users){
-            message.reply("**please mention the member** :snowflake: ")
-            return;
-        }
- 
-    if(!member.voiceChannel){
-    message.reply("**i can't include voice channel for member!** :snowflake: ")
-    return;
-    }
-              message.guild.createChannel('voicekick', 'voice').then(c => {
-                member.setVoiceChannel(c).then(() => {
-                    c.delete(305).catch(console.log)
-       
- 
- 
-   
-      });
-     });
-    }
-});
-
 
 
 client.on('message', async message =>{
@@ -651,8 +618,8 @@ client.on('message', message => {
   if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("**https://cdn.discordapp.com/attachments/498625534549295114/498825358682882059/kick_metion.png**");
-  if(!reason) return message.reply ("**https://cdn.discordapp.com/attachments/498625534549295114/498825956983701514/kick_reson.png**");
+  if (message.mentions.users.size < 1) return message.reply("**Please Montion @User**");
+  if(!reason) return message.reply ("**Plase Write Reason To Kick The user**");
   if (!message.guild.member(user)
   .kickable) return message.reply("**This User Is Have High Role**");
 
@@ -729,6 +696,26 @@ if(!message.channel.guild) return;
   }
 });
 
+
+
+client.on('message', message => {
+             if (!message.channel.guild) return;
+      if (message.author.bot) return;
+
+  if (!message.content.startsWith(prefix)) return;
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = message.content.split(" ").slice(1);
+  
+  if (command === 'invites') {
+    message.guild.fetchInvites().then(invs => {
+      let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+      let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+    return message.reply(`**${inviteCount}: عدد الاشخاص الذي دعوتهم هو**`)
+
+});
+}});
 
 
 
