@@ -191,7 +191,6 @@ message.react("❌")
  }
 });
 
-});
 client.on('ready', () => {
   console.log('|===================================|');
   console.log(`|  Users Size ${client.users.size}  |`);
