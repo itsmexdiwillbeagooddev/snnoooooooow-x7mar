@@ -150,7 +150,7 @@ var embed  = new Discord.RichEmbed()
 .addField('**💬 Channels **',`**${message.guild.channels.filter(m => m.type === 'text').size}**` + ' text | Voice  '+ `**${message.guild.channels.filter(m => m.type === 'voice').size}** `,true)
 .addField("**🌍 Others **" , message.guild.region,true)
 .addField("** 🔐 Roles **",`**[${message.guild.roles.size}]** Role `,true)
-.setColor('#00FFF')
+.setColor('#00FFFF')
 message.channel.sendEmbed(embed)
 
 }
@@ -171,11 +171,11 @@ if (message.member.voiceChannel != null) {
  var usermentioned = message.mentions.members.first().id;
 var embed = new Discord.RichEmbed()
  .setTitle("Succes!")
- .setColor("#00FFF")
+ .setColor("#00FFFF")
  .setDescription(`لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك✅ `)
 var embed = new Discord.RichEmbed()
 .setTitle(`You are Moved in ${message.guild.name}`)
- .setColor("#00FFF")
+ .setColor("#00FFFF")
 .setDescription(`**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`)
  message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
 message.guild.members.get(usermentioned).send(embed)
