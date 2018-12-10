@@ -56,7 +56,7 @@ client.on('ready', function(){
 
 
 ///consoledlbot
-    client.on('ready', () => {
+client.on('ready', () => {
         console.log('╔[════════════════════════════════════]╗');
         console.log('            ╔[════════════]╗')
         console.log('              Bot Is Online')
