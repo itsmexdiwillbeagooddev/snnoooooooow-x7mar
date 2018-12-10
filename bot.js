@@ -35,41 +35,24 @@ var ti={}
 
 
 //streaming dl bot
-client.on('ready', function(){
-    client.user.setStatus("dnd");
-    var ms = 60000 ;
-    var setGame = [`${client.guilds.size} Server`,'-help','Type -help',`${client.users.size} Members`,'-inv','Snow Bot ❄'];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/Ninja`);
-    }, ms);
+client.on('ready', () => {
+
+    client.user.setActivity("-help | SnowBot",{type: 'Streaming'})
+
 });
 
 
 
 ///consoledlbot
-client.on('ready', () => {
-        console.log('╔[════════════════════════════════════]╗');
-        console.log('            ╔[════════════]╗')
-        console.log('              Bot Is Online')
-        console.log('            ╚[════════════]╝')
-        console.log(`Logged in as ${client.user.tag}!`);   
-        console.log('')
-        console.log(`servers! [ " ${client.guilds.size} " ]`);
-        console.log('')
-        console.log('Snow Team')
-        console.log('')  
-        console.log(`Users! [ " ${client.users.size} " ]`);
-        console.log('╚[════════════════════════════════════]╝')
-      });
+client.on('ready',  () => {
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~Team #Snow Bot~~~~~~~~~~~');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log(`Logged in as  * [ "  Team #Snow Bot " ] servers! [ " ${client.guilds.size} " ] Users! [ " ${client.users.size} " ]`); 
+
+});
 
 
 
