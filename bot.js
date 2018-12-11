@@ -36,7 +36,7 @@ var ti={}
 
 //streaming dl bot
 client.on('ready', () => {
-
+    client.user.setStatus("Idle");
     client.user.setActivity("-help | SnowBot",{type: 'Streaming'})
 
 });
@@ -1022,14 +1022,14 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
 });
 
 
-                                    client.on('message', message => {
-                                            if (message.content === "-invite") {
-                                                if(!message.channel.guild) return;
-                                            let embed = new Discord.RichEmbed()
-                                            .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
-                                            .setTitle(`:small_orange_diamond: Click Here ! `)
-                                            .setURL(`https://discordapp.com/oauth2/authorize?client_id=519838063992635392&scope=bot&permissions=384064`)
-                                            .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
+   client.on('message', message => {
+                    if (message.content === "-invite") {
+                       if(!message.channel.guild) return;
+                        let embed = new Discord.RichEmbed()
+  .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
+ .setTitle(`:small_orange_diamond: Click Here ! `)
+ .setURL(`https://discordapp.com/oauth2/authorize?client_id=519838063992635392&scope=bot&permissions=384064`)
+ .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
                                          message.channel.sendEmbed(embed);
                                            }
                                        });
@@ -1037,32 +1037,31 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
 
 
 
-                                    client.on('message', message => {
-                                            if (message.content === "-inv") {
-                                                if(!message.channel.guild) return;
-                                            let embed = new Discord.RichEmbed()
-                                            .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
-                                            .setTitle(`:small_orange_diamond: Click Here ! `)
-                                            .setURL(`https://discordapp.com/oauth2/authorize?client_id=519838063992635392&scope=bot&permissions=384064`)
-                                            .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
+client.on('message', message => {
+ if (message.content === "-inv") {
+   if(!message.channel.guild) return;
+    let embed = new Discord.RichEmbed()
+.setAuthor(` ${message.author.username} `, message.author.avatarURL)  
+.setTitle(`:small_orange_diamond: Click Here ! `)
+.setURL(`https://discordapp.com/oauth2/authorize?client_id=519838063992635392&scope=bot&permissions=384064`)
+.setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
                                          message.channel.sendEmbed(embed);
                                            }
                                        });                                 
 
-                                       client.on('message', message => {
-                                        if (message.content === "-support") {
-                                        let embed = new Discord.RichEmbed()
-                                     .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
-                                     .setColor("#00FFFF")
-                                     .addField(" ** :snowflake: Server Support :snowflake: **" , "  **https://discord.gg/mP3AxB7**")
+   client.on('message', message => {
+if (message.content === "-support") {
+let embed = new Discord.RichEmbed()
+.setAuthor(` ${message.author.username} `, message.author.avatarURL)  
+.setColor("#00FFFF")
+.addField(" ** :snowflake: Server Support :snowflake: **" , "  **https://discord.gg/mP3AxB7**")
                                         
                                         
                                      message.channel.sendEmbed(embed);
                                        }
                                    });
 
-
-                                      client.on('message', message => {
+                    client.on('message', message => {
                                         if (message.content === "-sup") {
                                         let embed = new Discord.RichEmbed()
                                      .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
@@ -1089,7 +1088,6 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
                             if (command == "embed") {
                                 if (!message.channel.guild) return message.reply('** This command only for servers **');
                                 let say = new Discord.RichEmbed()
-                                    .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
                                     .setDescription(args.join("  "))
                                     .setColor("#00FFFF")
                                 message.channel.sendEmbed(say);
@@ -1245,6 +1243,269 @@ rw.channel.sendEmbed(Embed11).then(rw => {rw.delete(15000)})
 }) 
 
 
+
+client.on('message', message => {
+    var prefix = "-";
+    if (message.author.bot) return;
+    if (!message.content.startsWith(prefix)) return;
+ 
+    let command = message.content.split(" ")[0];
+    command = command.slice(prefix.length);
+ 
+ 
+  let args = message.content.split(" ").slice(1);
+  let x = args.join(" ")
+    if(message.content.startsWith(prefix + 'say')) {
+        message.channel.send('# '+x);
+            message.delete(999)
+    }
+   
+   
+  });
+
+
+//unabn all
+  client.on('message', message => {
+    if (message.content.startWith(prefix + "unall")){
+if(!message.channel.guild) return;
+ message.guild.members.forEach( member => {
+     
+     member.unban()
+ })
+}
+});
+
+
+
+
+client.on('message', message => {
+    if(!message.channel.guild) return;
+var prefix = "-";
+if(message.content.startsWith(prefix + 'ch')) {
+    let channel = message.channel
+    var embed = new Discord.RichEmbed()
+      .setTitle("معلومات الروم")
+      .setColor("#00FFFF")
+      .setDescription(`ايدي الروم <#${channel.id}>\nChannel ID: ${channel.id}`)
+      .addField("صنع في", `${channel.createdAt}`)
+      .addField("نوع الروم", `${channel.type}`)
+      .addField("Extra Information", `Channel is NSFW => ${channel.nsfw}\nChannel Topic=> ${channel.topic}\nChannel Parent => ${channel.parent}\nChannel Position => ${channel.position}`)
+ 
+     message.channel.send({ embed: embed });
+  }
+ 
+    });
+
+
+
+
+client.on('message', message => {
+    if (!message.channel.guild) return;
+if(message.content =='-member')
+var IzRo = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.setFooter(message.author.username, message.author.avatarURL) 
+.setTitle('🌷| Members info')
+.addBlankField(true)
+.addField('📗| Online',
+`${message.guild.members.filter(m=>m.presence.status == 'online').size}`)
+.addField('📕| DND',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
+.addField('📙| Idle',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
+.addField('📓| Offline',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
+.addField('➡| Server Members',`${message.guild.memberCount}`)
+message.channel.send(IzRo);
+
+});
+
+
+
+
+//emoji-list
+      client.on('message', message => { 
+        var prefix = '-';
+     if (message.content.startsWith(prefix + 'emojilist')) {
+ 
+         const List = message.guild.emojis.map(e => e.toString()).join(" ");
+ 
+         const EmojiList = new Discord.RichEmbed()
+             .setTitle('➠ Emoji\'s')
+             .setAuthor(message.guild.name, message.guild.iconURL) 
+             .setColor('#00FFFF')
+             .setDescription(List) 
+             .setTimestamp() 
+             .setFooter(message.guild.name)
+         message.channel.send(EmojiList) 
+ 
+        
+          
+     }
+ });
+
+
+
+
+
+//only-hi
+client.on('message', message => {
+    if (message.content.startsWith('snow')){
+         let ra3d = new Discord.RichEmbed()
+      .setAuthor(message.author.username)
+      .setColor("#00FFFF")
+      .setDescription(" **Yo ! Im The New Discord Bot**")
+         
+         
+      message.channel.sendEmbed(ra3d);
+        }
+    });
+
+
+
+
+
+//offline-members
+client.on('typingStart', (ch, user) => {
+    if(user.presence.status === 'offline') {
+        ch.send(`${user} ** تحذير هذا شخص مسوي نفسه اوف لاين ويكتب**`)
+        .then(msg => {
+            msg.delete(10000)
+        })
+    }
+});
+
+
+
+
+//montion-the bot
+client.on('message', message=> {
+    if (message.author.bot) return;
+    if (message.isMentioned(client.user))
+    {
+    message.reply(" **My Prefix is** ``-`` ");
+    }
+});
+
+
+
+
+//dm
+client.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var stewart = new Discord.RichEmbed()
+            .setColor('#00FFFF')
+            .setTimestamp()
+            .setTitle('``رساله جديده في خاص البوت``')
+            .setThumbnail(`${message.author.avatarURL}`)
+            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+            .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
+        client.channels.get("520326537933881354").send({ embed: stewart });
+    }
+});
+
+
+
+
+//count-server
+client.on('message', message => {
+    if (!message.channel.guild) return;
+if(message.content =='-count')
+var SaifDz = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.setFooter(message.author.username, message.author.avatarURL)
+.setTitle(' :boom: | Members info')
+.addBlankField(true)
+.addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
+message.channel.send(SaifDz);
+});
+
+
+
+
+
+///link
+client.on('message', message => {
+    if (message.content.startsWith("رابط")) {
+        message.channel.createInvite({
+        thing: true,
+        maxUses: 1,
+        maxAge: 3600,
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("#00FFFF")
+          .setDescription("**تم أرسال الرابط برسالة خاصة**")
+           .setAuthor(client.user.username, client.user.avatarURL)
+                 .setAuthor(client.user.username, client.user.avatarURL)
+                .setFooter('**طلب بواسطة:** ' + message.author.tag)
+
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("#00FFF")
+        
+    .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 1 **")
+      message.author.sendEmbed(Embed11)
+    }
+}); 
+
+
+client.on("message", message => {
+    var prefix = "-";
+    const command = message.content.split(" ")[0];
+ 
+    if(command == prefix+"vkick"){
+ 
+        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+            return message.reply('**you do not have permission to perform this action!** :snowflake: ');
+        }
+ 
+        var member = message.guild.members.get(message.mentions.users.array()[0].id);
+        if(!message.mentions.users){
+            message.reply("**please mention the member** :snowflake: ")
+            return;
+        }
+ 
+    if(!member.voiceChannel){
+    message.reply("**i can't include voice channel for member!** :snowflake: ")
+    return;
+    }
+              message.guild.createChannel('voicekick', 'voice').then(c => {
+                member.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log)
+       
+ 
+ 
+   
+      });
+     });
+    }
+});
+
+
+
+const arraySort = require('array-sort');
+client.on('message' , async (message) => {
+
+    if(message.content.startsWith(prefix + "topinv")) {
+
+  let invites = await message.guild.fetchInvites();
+
+    invites = invites.array();
+
+    arraySort(invites, 'uses', { reverse: true });
+
+    let possibleInvites = [['User', 'Uses']];
+    invites.forEach(i => {
+      possibleInvites.push([i.inviter.username , i.uses]);
+    })
+    const embed = new Discord.RichEmbed()
+    .setColor("#00FFFF")
+    .setTitle("دعوات السيرفر")
+    .addField(' المتصدرين' , `\`\`\`${table.table(possibleInvites)}\`\`\``)
+
+    message.channel.send(embed)
+    }
+});
 
 
 
