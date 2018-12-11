@@ -785,7 +785,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
 
   const banembed = new Discord.RichEmbed()
   .setAuthor(`BANNED!`, user.displayAvatarURL)
-  .setColor("#00FFFF"")
+  .setColor("#00FFFF")
   .setTimestamp()
   .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
   .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
