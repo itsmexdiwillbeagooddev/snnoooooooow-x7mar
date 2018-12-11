@@ -1111,7 +1111,7 @@ let embed = new Discord.RichEmbed()
                                     var prefix = "-"
                                     
                                     if (message.author.bot) return;
-                                    if (message.content.startsWith(prefix + "contact")) {
+                                    if (message.content.startsWith(prefix + " ")) {
                                     if (!message.channel.guild) return;
                                     
                                     
@@ -1402,7 +1402,6 @@ var SaifDz = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setFooter(message.author.username, message.author.avatarURL)
 .setTitle(' :boom: | Members info')
-.addBlankField(true)
 .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
 message.channel.send(SaifDz);
 });
@@ -1500,6 +1499,199 @@ client.on('message' , async (message) => {
 
 
 
+var prefix = "-" ;   // البرفكس هنا
+
+
+
+var requestHelp = async function(type, user, message) {
+    switch(type) {
+        case "games":
+            var gamesHelp = await new Discord.RichEmbed()
+                .addField("**Coming Soon !")
+            user.send(gamesHelp);
+        break;
+        case "general":
+            var generalHelp = await new Discord.RichEmbed()
+                .addField("ping", "سرعة اتصالك")
+                .addField("server", "معلومات عن السيرفر")
+                .addField("avatar", "افتارك")
+                .addField("invitebot", "يعطيك رابط البوت الي منشنته")
+                .addField("bot", "معلومات عن البوت")
+                .addField("emoji", "يعطيك ايوجيات على حسب الكاتبة الي كتبتها")
+                .addField("invites", "عدد دعواتك")
+                .addField("invite-codes", "اكواد دعواتك")
+                .addField("embed", "يعيد كتابتك بشكل جميل")
+                .addField("bans", "عدد الاشخاص المتبندة من السيرفر")
+                .addField("contact", "ارسال رسلة الى صاحب البوت او اقتراح")
+                .addField("say", "يعيد كتابتك")
+                .addField("ch", "معلومات الروم")
+                .addField("member", "معلومات عن الاعضاء")
+                .addField("emojilist", "يعطيك كل اموجيات السيرفر")
+                .addField("count", "عدد الاعضاء")
+                .addField("vkick", "طرد العضو من الروم")
+                .addField("topinv", "اكثر الاعضاء الي قامو بنشر السيرفر")
+            user.send(generalHelp);
+        break;
+        case "admin":
+        if(message.member.hasPermission("ADMINISTRATOR")) {
+            var adminHelp = await new Discord.RichEmbed()
+                .addField("clear", "مسح الشات")
+                .addField("bc", "بروكاست")
+                .addField("move", "لسحب عضو اليك في روم صوتي")
+                .addField("role", "اعدادات الرتب")
+                .addField("closeroom", "قفل المحادثة في الروم")
+                .addField("openroom", "فتح المحادثة في الروم")
+                .addField("schannel", "لأظهار الروم")
+                .addField("hchannel", " لأخفاء الروم")
+                .addField("ct", "إنـشاء روم كـتابـي")
+                .addField("cv", "إنـشاء روم صـوتي")
+                .addField("mute", "اعضاء ميوت كتابي لعضو في السيرفر")
+                .addField("unmute", " فك الميوت عن عضو في السيرفر")
+                .addField("ban", "حضر عضو من السيرفر")
+                .addField("kick", "طرد عضو من السيرفر")
+                .addField("vb", "تبنيد العضو من الرومات الصوتية")
+                .addField("uvb", "فك باند الرومات عن العضو")
+            user.send(adminHelp); 
+        } else {
+            return;
+        }
+        break;
+    }
+}
+
+
+
+
+
+
+var reactForGamesHelp = {
+    messageId: null,
+    reaction: null
+}, 
+reactForGeneralHelp = {
+    messageId: null,
+    reaction: null
+}, 
+reactForAdminHelp = {
+    messageId: null,
+    reaction: null
+};
+
+
+
+function define(identify) {
+    var data = {}
+    data["user"] = client.users.find("id", identify.user_id)
+    data["channel"] = client.channels.find("id", identify.channel_id);
+    data["emoji"] = identify.emoji.id ? `${identify.emoji.name}:${identify.emoji.id}` : identify.emoji.name;
+    data["member"] = data["channel"].guild.members.find("id", identify.user_id)
+    data["message"] = data["channel"].messages.find("id", identify.message_id);
+    data["reaction"] = data["message"].reactions.get(data.emoji)
+    return data;
+}
+
+
+client.on('raw',  packet  => {
+    if(packet.t == "MESSAGE_REACTION_ADD") {
+        var data = define(packet.d)
+        if(data.user.id == client.user.id) return;
+            switch (packet.d.message_id) {
+            case reactForGamesHelp.messageId:
+                if(reactForGamesHelp.reaction === data.emoji) {
+                    requestHelp("games", data.member, data.message)
+                    data.reaction.remove(data.member)
+                } else {
+                    data.reaction.remove(data.member)
+                }
+                break;
+
+            case reactForGeneralHelp.messageId:
+                if(reactForGeneralHelp.reaction === data.emoji) {
+                    requestHelp("general", data.member, data.message)
+                    data.reaction.remove(data.member)
+                } else {
+                    data.reaction.remove(data.member)
+                }
+                break;
+
+
+            case reactForAdminHelp.messageId:
+                if(reactForAdminHelp.reaction === data.emoji) {
+                    requestHelp("admin", data.member, data.message)
+                    data.reaction.remove(data.member)
+                } else {
+                    data.reaction.remove(data.member)
+                }
+                break;
+        }
+    }
+});
+
+
+
+
+
+
+client.on("message", message => {
+    if(message.content.indexOf(prefix) !== 0) return;
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    if(message.content == prefix + `set ${args[1]} help`) {
+        if(args[1] == "games" || args[1] == "general" || args[1] == "admin") {
+            var  filter = m => m.author.id === message.author.id
+            message.channel.send("give me the channel id now !");        
+            message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+            .then(collected => {
+                var toSetChannel = collected.first();
+                var channel = message.guild.channels.find("id", toSetChannel.content);
+                if(channel) {
+                    message.channel.send("give me the message id now !")
+                    var  filter = m => m.author.id === message.author.id
+                    message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+                    .then(collected => {
+                        var ToSetMessage = collected.first();
+                        channel.fetchMessages().then(messages => {
+                            var defined =  messages.filter(message => message.id == ToSetMessage.content);
+                            var msg = defined.first()
+                            if(defined) {
+                                message.channel.send("send the emoji now!")
+                                message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+                                .then(collected => {
+                                    msg.react(collected.first().content)
+                                    var rect = collected.first().content
+                                    setReactionData(channel, msg, rect, args[1])
+                                })
+                            } 
+                        })
+                        .catch(console.error)
+                    });
+                } else {
+                    message.channel.send("sorry i can't find this channel")
+                }
+            })
+        }
+    }
+})
+var setReactionData = function(channel, message, reaction, identify) {
+    if(identify == "games") {
+        reactForGamesHelp = {
+            channel: channel,
+            messageId: message.id,
+            reaction: reaction
+        }
+    } else if(identify == "general") {
+        reactForGeneralHelp = {
+            channel: channel,
+            messageId: message.id,
+            reaction: reaction
+        }
+    } else if(identify == "admin") {
+        reactForAdminHelp = {
+            channel: channel,
+            messageId: message.id,
+            reaction: reaction
+        }
+    }
+}   
 
 
 
