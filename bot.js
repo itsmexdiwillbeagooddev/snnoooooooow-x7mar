@@ -36,7 +36,7 @@ var ti={}
 
 //streaming dl bot
 client.on('ready', () => {
-    client.user.setStatus("Idle");
+    client.user.setStatus("dnd");
     client.user.setActivity("-help | SnowBot",{type: 'Streaming'})
 
 });
@@ -92,15 +92,6 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 });
 
 
-
-//montion bot
-client.on('message', message=> {
-    if (message.author.bot) return;
-    if (message.isMentioned(client.user))
-    {
-    message.reply(" **? كيف اقدلر اساعدك ** ");
-    }
-});
 
 
 //thanks
@@ -1111,7 +1102,7 @@ let embed = new Discord.RichEmbed()
                                     var prefix = "-"
                                     
                                     if (message.author.bot) return;
-                                    if (message.content.startsWith(prefix + " ")) {
+                                    if (message.content.startsWith(prefix + "contact")) {
                                     if (!message.channel.guild) return;
                                     
                                     
@@ -1351,27 +1342,10 @@ client.on('message', message => {
 
 
 
-//offline-members
-client.on('typingStart', (ch, user) => {
-    if(user.presence.status === 'offline') {
-        ch.send(`${user} ** تحذير هذا شخص مسوي نفسه اوف لاين ويكتب**`)
-        .then(msg => {
-            msg.delete(10000)
-        })
-    }
-});
 
 
 
 
-//montion-the bot
-client.on('message', message=> {
-    if (message.author.bot) return;
-    if (message.isMentioned(client.user))
-    {
-    message.reply(" **My Prefix is** ``-`` ");
-    }
-});
 
 
 
