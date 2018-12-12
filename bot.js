@@ -1590,7 +1590,7 @@ client.on('message', message => {
      if (message.content === (prefix + "help")) {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
-  .addField("Done" , " تــــم ارســالك في الخــاص")
+  .addField(" تــــم ارســالك في الخــاص")
   message.channel.sendEmbed(embed);
     }
 });
