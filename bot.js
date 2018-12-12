@@ -1500,202 +1500,251 @@ client.on('message' , async (message) => {
 
 
 
-var requestHelp = async function(type, user, message) {
-    switch(type) {
-        case "games":
-            var gamesHelp = await new Discord.RichEmbed()
-                .addField("**Coming Soon !")
-            user.send(gamesHelp);
-        break;
-        case "general":
-            var generalHelp = await new Discord.RichEmbed()
-                .addField("ping", "سرعة اتصالك")
-                .addField("server", "معلومات عن السيرفر")
-                .addField("avatar", "افتارك")
-                .addField("invitebot", "يعطيك رابط البوت الي منشنته")
-                .addField("bot", "معلومات عن البوت")
-                .addField("emoji", "يعطيك ايوجيات على حسب الكاتبة الي كتبتها")
-                .addField("invites", "عدد دعواتك")
-                .addField("invite-codes", "اكواد دعواتك")
-                .addField("embed", "يعيد كتابتك بشكل جميل")
-                .addField("bans", "عدد الاشخاص المتبندة من السيرفر")
-                .addField("contact", "ارسال رسلة الى صاحب البوت او اقتراح")
-                .addField("say", "يعيد كتابتك")
-                .addField("ch", "معلومات الروم")
-                .addField("member", "معلومات عن الاعضاء")
-                .addField("emojilist", "يعطيك كل اموجيات السيرفر")
-                .addField("count", "عدد الاعضاء")
-                .addField("vkick", "طرد العضو من الروم")
-                .addField("topinv", "اكثر الاعضاء الي قامو بنشر السيرفر")
-            user.send(generalHelp);
-        break;
-        case "admin":
-        if(message.member.hasPermission("ADMINISTRATOR")) {
-            var adminHelp = await new Discord.RichEmbed()
-                .addField("clear", "مسح الشات")
-                .addField("bc", "بروكاست")
-                .addField("move", "لسحب عضو اليك في روم صوتي")
-                .addField("role", "اعدادات الرتب")
-                .addField("closeroom", "قفل المحادثة في الروم")
-                .addField("openroom", "فتح المحادثة في الروم")
-                .addField("schannel", "لأظهار الروم")
-                .addField("hchannel", " لأخفاء الروم")
-                .addField("ct", "إنـشاء روم كـتابـي")
-                .addField("cv", "إنـشاء روم صـوتي")
-                .addField("mute", "اعضاء ميوت كتابي لعضو في السيرفر")
-                .addField("unmute", " فك الميوت عن عضو في السيرفر")
-                .addField("ban", "حضر عضو من السيرفر")
-                .addField("kick", "طرد عضو من السيرفر")
-                .addField("vb", "تبنيد العضو من الرومات الصوتية")
-                .addField("uvb", "فك باند الرومات عن العضو")
-            user.send(adminHelp); 
-        } else {
-            return;
-        }
-        break;
-    }
-}
+//『${prefix}』
+client.on("message", message => {
+    if (message.content === (prefix + "help")) {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FFFF")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+   
+   **
+   
+╭━━━╮╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
+┃╭━╮┃╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
+┃╰━━┳━╮╭━━┳╮╭╮╭┫╰╯╰┳━┻╮╭╯
+╰━━╮┃╭╮┫╭╮┃╰╯╰╯┃╭━╮┃╭╮┃┃
+┃╰━╯┃┃┃┃╰╯┣╮╭╮╭┫╰━╯┃╰╯┃╰╮
+╰━━━┻╯╰┻━━╯╰╯╰╯╰━━━┻━━┻━╯
+   **
+   
+           ***General Commands***
+   **
+   『${prefix}id/ معلومات عن حسابك』
+   『${prefix}invitebot @bot / يعطيك رابط البوت الي منشنته』
+   『${prefix}embed/ يكرر كلامك بمبيد』
+   『${prefix}sug/ الإقتراحات』
+   『${prefix}emoji / يعطيك ايوجيات على حسب الكاتبة الي كتبتها』
+   『${prefix}bans / عدد الاشخاص المتبندة من السيرفر』
+   『${prefix}server/ معلومات عن السيرفر』
+   『${prefix}image/ يعرض صوره السيرفر』
+   『${prefix}avatar/ يعرض صورتك او صوره شخص』
+   『${prefix}emojilist /يعطيك كل اموجيات السيرفر』
+   『${prefix}invites/ يعرض كم ضياف 』
+   『${prefix}topinv / اكثر الاعضاء الي قامو بنشر السيرفر』
+   『${prefix}contact / ارسال رسلة الى صاحب البوت او اقتراح』
+   『${prefix}count / عدد الاعضاء』
+   『${prefix}say / يكرر الكلام لتكتب』
+   『${prefix}ch /يعطيك معلومات الروم 』
+   『${prefix}member / معلومات عن الاعضاء』
+   **
+           ***Administrative Commands***
+   **
+   『${prefix}move @user /لسحب عضو اليك في روم صوتي』
+   『${prefix}role /يعرض لك اعدادات الرتب』
+   『${prefix}vkick /طرد العضو من الروم』
+   『${prefix}ct /انشاء روم كتابي』
+   『${prefix}cv /انشاء روم صوتي』
+   『${prefix}delet / مسح روم』
+   『${prefix}bc /لإرسال رسالة جماعية』
+   『${prefix}clear / لمسح الشات』
+   『${prefix}closeroom / قفل المحادثة في الروم』
+   『${prefix}openroom / فتح المحادثة في الروم』
+   『${prefix}schannel / لأظهار الروم』
+   『${prefix}hchannel / لأخفاء الروم』
+   『${prefix}mute / اعضاء ميوت كتابي لعضو في السيرفر』
+   『${prefix}unmute / فك الميوت عن عضو في السيرفر』
+   『${prefix}ban / حضر عضو من السيرفر』
+   『${prefix}kick / طرد عضو من السيرفر』
+   『${prefix}vb / تبنيد العضو من الرومات الصوتية』
+   『${prefix}uvb / فك باند الرومات عن العضو』
+**
+           ***Bot Commands***
+  **
+   『${prefix}ping/ يعرض لك سرعه اتصال البوت』
+   『${prefix}support/ سيرفر الدعم القني و المساعده』
+   『${prefix}invite/ اضافه البوت』
+   『${prefix}bot/ معلومات عن البوت』
+   **
+           ***Games Commands***
+    **       
+   『soon』
+    **
+             **_ _---------------- _ _**
+  **BOT By: |** <@314845344313901057> **|-|** <@415595760990552065> **|**
 
+   **
 
-
-
-
-
-var reactForGamesHelp = {
-    messageId: null,
-    reaction: null
-}, 
-reactForGeneralHelp = {
-    messageId: null,
-    reaction: null
-}, 
-reactForAdminHelp = {
-    messageId: null,
-    reaction: null
-};
-
-
-
-function define(identify) {
-    var data = {}
-    data["user"] = client.users.find("id", identify.user_id)
-    data["channel"] = client.channels.find("id", identify.channel_id);
-    data["emoji"] = identify.emoji.id ? `${identify.emoji.name}:${identify.emoji.id}` : identify.emoji.name;
-    data["member"] = data["channel"].guild.members.find("id", identify.user_id)
-    data["message"] = data["channel"].messages.find("id", identify.message_id);
-    data["reaction"] = data["message"].reactions.get(data.emoji)
-    return data;
-}
-
-
-client.on('raw',  packet  => {
-    if(packet.t == "MESSAGE_REACTION_ADD") {
-        var data = define(packet.d)
-        if(data.user.id == client.user.id) return;
-            switch (packet.d.message_id) {
-            case reactForGamesHelp.messageId:
-                if(reactForGamesHelp.reaction === data.emoji) {
-                    requestHelp("games", data.member, data.message)
-                    data.reaction.remove(data.member)
-                } else {
-                    data.reaction.remove(data.member)
-                }
-                break;
-
-            case reactForGeneralHelp.messageId:
-                if(reactForGeneralHelp.reaction === data.emoji) {
-                    requestHelp("general", data.member, data.message)
-                    data.reaction.remove(data.member)
-                } else {
-                    data.reaction.remove(data.member)
-                }
-                break;
-
-
-            case reactForAdminHelp.messageId:
-                if(reactForAdminHelp.reaction === data.emoji) {
-                    requestHelp("admin", data.member, data.message)
-                    data.reaction.remove(data.member)
-                } else {
-                    data.reaction.remove(data.member)
-                }
-                break;
-        }
+   `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });  
+client.on('message', message => {
+     if (message.content === (prefix + "help")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#00FFFF")
+  .addField("Done" , " تــــم ارســالك في الخــاص")
+  message.channel.sendEmbed(embed);
     }
 });
 
 
-
-
-
-
-client.on("message", message => {
-    if(message.content.indexOf(prefix) !== 0) return;
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    if(message.content == prefix + `set ${args[1]} help`) {
-        if(args[1] == "games" || args[1] == "general" || args[1] == "admin") {
-            var  filter = m => m.author.id === message.author.id
-            message.channel.send("give me the channel id now !");        
-            message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-            .then(collected => {
-                var toSetChannel = collected.first();
-                var channel = message.guild.channels.find("id", toSetChannel.content);
-                if(channel) {
-                    message.channel.send("give me the message id now !")
-                    var  filter = m => m.author.id === message.author.id
-                    message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-                    .then(collected => {
-                        var ToSetMessage = collected.first();
-                        channel.fetchMessages().then(messages => {
-                            var defined =  messages.filter(message => message.id == ToSetMessage.content);
-                            var msg = defined.first()
-                            if(defined) {
-                                message.channel.send("send the emoji now!")
-                                message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-                                .then(collected => {
-                                    msg.react(collected.first().content)
-                                    var rect = collected.first().content
-                                    setReactionData(channel, msg, rect, args[1])
-                                })
-                            } 
-                        })
-                        .catch(console.error)
-                    });
-                } else {
-                    message.channel.send("sorry i can't find this channel")
-                }
-            })
-        }
+    const dot = new Discord.Client();
+client.on('message', message => {
+    
+    if (message.content === "SnowBot") {
+        setInterval(function(){
+        message.edit('**T**')    
+        message.edit('**Te**')    
+        message.edit('**Tea**')
+        message.edit('**Team**')
+        message.edit('**Team S**')
+        message.edit('**Team Sn**')
+        message.edit('**Team Sno*')
+        message.edit('**Team Snow**')
+        message.edit('**Team Snow **')
+        message.edit('**Team Snow B**')
+        message.edit('**Team Snow Bo**')
+        message.edit('**Team Snow Bot**')
+        message.edit('**Team Snow Bot **')
+        message.edit('**Team Snow Bot ..**')
+        }, 1000)
     }
+    
 })
-var setReactionData = function(channel, message, reaction, identify) {
-    if(identify == "games") {
-        reactForGamesHelp = {
-            channel: channel,
-            messageId: message.id,
-            reaction: reaction
+
+
+var Canvas = require('canvas')
+var jimp = require('jimp')
+var moment = require("moment");
+
+
+client.on('message', message => {
+
+    if(message.content.startsWith(prefix + 'id')) {
+if(!message.channel.guild) return;
+      var args = message.content.split(" ").slice(1);
+      let user = message.mentions.users.first();
+      var men = message.mentions.users.first();
+         var heg;
+         if(men) {
+             heg = men
+         } else {
+             heg = message.author
+         }
+       var mentionned = message.mentions.members.first();
+          var h;
+         if(mentionned) {
+             h = mentionned
+         } else {
+             h = message.member
+         }
+  moment.locale('ar');
+    const w = ['../id1.png','../id2.png','../id3.png','../id4.png','../id5.png']
+        let Image = Canvas.Image,
+            canvas = new Canvas(500, 500),
+            ctx = canvas.getContext('2d');
+        ctx.patternQuality = 'bilinear';
+        ctx.filter = 'bilinear';
+        ctx.antialias = 'subpixel';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0)';
+        ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 2;
+        fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+            if (err) return console.log(err);
+            let BG = Canvas.Image;
+            let ground = new Image;
+            ground.src = Background;
+            ctx.drawImage(ground, 0, 0, 500, 500);
+
+})
+                let url = h.user.displayAvatarURL.endsWith(".webp") ? h.user.displayAvatarURL.slice(5, -20) + ".png" : h.user.displayAvatarURL;
+                jimp.read(url, (err, ava) => {
+                    if (err) return console.log(err);
+                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                        if (err) return console.log(err);
+  //time dateformet
+  const millis = new Date().getTime() - h.user.createdAt.getTime();
+  const now = new Date();
+  dateFormat(now, 'dddd, mmmm dS, yyyy');
+  const stats2 = ['online', 'Low', 'Medium', 'Insane'];
+  const days = millis / 1000 / 60 / 60 / 24;
+            dateFormat(now, 'dddd, mmmm dS, yyyy');
+            
+        
+                          //دخولك الديسكورد
+                          var day = `منذ ${days.toFixed(0)} يوم`
+                          ctx.font = '27px Arial Bold';
+                          ctx.fontSize = '30px';
+                          ctx.fillStyle = "#ffffff";
+                          ctx.textAlign = "center";
+                          ctx.fillText(day, 109, 97)
+              //wl
+              var millis1;
+        if(mentionned){
+            var millis1 = new Date().getTime() - mentionned.joinedAt
+        } else {
+            var millis1 = new Date().getTime() - moment(message.member.joinedAt);;
+            
         }
-    } else if(identify == "general") {
-        reactForGeneralHelp = {
-            channel: channel,
-            messageId: message.id,
-            reaction: reaction
-        }
-    } else if(identify == "admin") {
-        reactForAdminHelp = {
-            channel: channel,
-            messageId: message.id,
-            reaction: reaction
-        }
+
+  const days1 = millis1 / 1000 / 60 / 60 / 24;
+  
+                        //دخولك السيرفر
+                        var day2 = `منذ ${days1.toFixed(0)} يوم`
+                        ctx.font = '27px Arial Bold';
+                        ctx.fontSize = '20px';
+                        ctx.fillStyle = "#ffffff";
+                        ctx.textAlign = "center";
+                        ctx.fillText(day2, 388, 97); 
+
+                        //ur name
+                        ctx.font = '27px BlowBrush';
+                        ctx.fontSize = '30px';
+                        ctx.fillStyle = "#FFFFFF";
+                        ctx.textAlign = "center";
+                        ctx.fillText(h.user.username, 245, 365);
+                        //tag
+                        ctx.font = '27px Arial Bold';
+                        ctx.fontSize = '45px';
+                        ctx.fillStyle = "#ffffff";
+                        ctx.textAlign = "center";
+                        ctx.fillText(`#${heg.discriminator}`, 120, 450);
+                        
+                        //حالتك
+                           let status;
+    if (h.presence.status === 'online') {
+        status = 'اون لاين';
+    } else if (h.presence.status === 'dnd') {
+        status = 'مشغول';
+    } else if (h.presence.status === 'idle') {
+        status = 'خمول';
+    } else if (h.presence.status === 'offline') {
+        status = 'اوف لاين';
     }
-}   
+                        ctx.font = '27px Arial Bold';
+                        ctx.fontSize = '30px';
+                        ctx.fillStyle = "#ffffff";
+                        ctx.textAlign = "center";
+                        ctx.fillText(`${status}`, 380, 450);
+                        
+                        //Avatar
+                        let Avatar = Canvas.Image;
+                        let ava = new Avatar;
+                        ava.src = buf;
+                        ctx.beginPath();
+                        ctx.arc(250, 238, 64, 0, Math.PI*2, true); 
+                        ctx.closePath();
+                        ctx.clip();
+                        ctx.drawImage(ava, 185, 172, 130, 130 );
+                         
+     message.channel.sendFile(canvas.toBuffer())
+})
+   })
 
-
-
-
-
-
-
+} });
 
 
 
