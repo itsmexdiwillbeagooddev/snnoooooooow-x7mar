@@ -1528,7 +1528,7 @@ client.on("message", message => {
    **
            ***Administrative Commands***
    **
-   `-move @user` 
+   `-move [user] ` 
 💠 لسحب عضو اليك في روم صوتي
    `-role` 
 💠 يعرض لك اعدادات الرتب
