@@ -1586,14 +1586,6 @@ client.on("message", message => {
    
    }
    });  
-client.on('message', message => {
-     if (message.content === (prefix + "help")) {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .addField(" تــــم ارســالك في الخــاص")
-  message.channel.sendEmbed(embed);
-    }
-});
 
 
     const dot = new Discord.Client();
@@ -1678,7 +1670,7 @@ if(!message.channel.guild) return;
             
         
                           //دخولك الديسكورد
-                          var day = `منذ ${days.toFixed(0)} يوم`
+                          var day = `Since ${days.toFixed(0)} Day Ago`
                           ctx.font = '27px Arial Bold';
                           ctx.fontSize = '30px';
                           ctx.fillStyle = "#ffffff";
@@ -1696,7 +1688,7 @@ if(!message.channel.guild) return;
   const days1 = millis1 / 1000 / 60 / 60 / 24;
   
                         //دخولك السيرفر
-                        var day2 = `منذ ${days1.toFixed(0)} يوم`
+                        var day2 = `Since  ${days1.toFixed(0)} Day Ago`
                         ctx.font = '27px Arial Bold';
                         ctx.fontSize = '20px';
                         ctx.fillStyle = "#ffffff";
@@ -1719,13 +1711,13 @@ if(!message.channel.guild) return;
                         //حالتك
                            let status;
     if (h.presence.status === 'online') {
-        status = 'اون لاين';
+        status = 'Online';
     } else if (h.presence.status === 'dnd') {
-        status = 'مشغول';
+        status = 'Dont Disturb';
     } else if (h.presence.status === 'idle') {
-        status = 'خمول';
+        status = 'Idle';
     } else if (h.presence.status === 'offline') {
-        status = 'اوف لاين';
+        status = 'Offline';
     }
                         ctx.font = '27px Arial Bold';
                         ctx.fontSize = '30px';
