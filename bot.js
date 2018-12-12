@@ -1617,7 +1617,6 @@ client.on('message', message => {
 
 
 var Canvas = require('canvas')
-var jimp = require('jimp')
 var moment = require("moment");
 
 
