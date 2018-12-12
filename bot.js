@@ -1587,6 +1587,20 @@ client.on("message", message => {
    }
    });  
 
+client.on('message', message => {
+     if (message.content === (prefix + "help")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#00FFFF")
+  .addField("Done" , " تــــم ارســالك في الخــاص")
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+
+
+
 
     const dot = new Discord.Client();
 client.on('message', message => {
