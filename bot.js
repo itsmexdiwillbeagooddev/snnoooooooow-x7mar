@@ -1514,16 +1514,16 @@ client.on("message", message => {
    **
            ***Administrative Commands***
    **
-   『${prefix}move @user /لسحب عضو اليك في روم صوتي』
-   『${prefix}role /يعرض لك اعدادات الرتب』
-   『${prefix}vkick /طرد العضو من الروم』
-   『${prefix}ct /انشاء روم كتابي』
-   『${prefix}cv /انشاء روم صوتي』
+   『${prefix}move @user /لسحب عضو اليك في روم صوتي
+   『${prefix}role /يعرض لك اعدادات الرتب
+   『${prefix}vkick /طرد العضو من الروم
+   『${prefix}ct /انشاء روم كتابي
+   『${prefix}cv /انشاء روم صوتي
    『${prefix}delet / مسح روم』
-   『${prefix}bc /لإرسال رسالة جماعية』
+   『${prefix}bc /لإرسال رسالة جماعية
    『${prefix}clear / لمسح الشات』
-   『${prefix}closeroom / قفل المحادثة في الروم』
-   『${prefix}openroom / فتح المحادثة في الروم』
+   『${prefix}closeroom / قفل المحادثة في الروم
+   『${prefix}openroom / فتح المحادثة في الروم
    『${prefix}schannel / لأظهار الروم』
    『${prefix}hchannel / لأخفاء الروم』
    『${prefix}mute / اعضاء ميوت كتابي لعضو في السيرفر』
