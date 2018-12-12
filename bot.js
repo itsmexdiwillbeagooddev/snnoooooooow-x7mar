@@ -1479,7 +1479,7 @@ client.on("message", message => {
      const embed = new Discord.RichEmbed() 
          .setColor("#00FFFF")
          .setThumbnail(message.author.avatarURL)
-         .setDescription(`**
+         .setDescription('**
 
 ╭━━━╮╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
 ┃╭━╮┃╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
@@ -1579,7 +1579,7 @@ client.on("message", message => {
 
    **
 
-   `)
+   ')
    message.author.sendEmbed(embed)
    
    }
