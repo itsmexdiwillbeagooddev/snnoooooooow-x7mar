@@ -1614,7 +1614,7 @@ if(!message.channel.guild) return;
              h = message.member
          }
   moment.locale('ar');
-    const w = ['../id1.png','../id2.png','../id3.png','../id4.png','../id5.png']
+    const w = ['nom/id1.png','nom/id2.png','nom/id3.png','nom/id4.png','nom/id5.png']
         let Image = Canvas.Image,
             canvas = new Canvas(500, 500),
             ctx = canvas.getContext('2d');
