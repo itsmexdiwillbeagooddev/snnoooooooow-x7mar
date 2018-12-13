@@ -1681,7 +1681,7 @@ if(!message.channel.guild) return;
                           ctx.fontSize = '20px';
                           ctx.fillStyle = "#ffffff";
                           ctx.textAlign = "center";
-                          ctx.fillText(day, 115, 97)
+                          ctx.fillText(day, 118, 103)
               //wl
               var millis1;
         if(mentionned){
@@ -1699,7 +1699,7 @@ if(!message.channel.guild) return;
                         ctx.fontSize = '20px';
                         ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
-                        ctx.fillText(day2, 375, 97); 
+                        ctx.fillText(day2, 377, 103); 
 
                         //ur name
                         ctx.font = '27px Geneva';
