@@ -1678,7 +1678,7 @@ if(!message.channel.guild) return;
                           //دخولك الديسكورد
                           var day = `Since ${days.toFixed(0)} Day Ago`
                           ctx.font = '27px Arial Bold';
-                          ctx.fontSize = '30px';
+                          ctx.fontSize = '25px';
                           ctx.fillStyle = "#ffffff";
                           ctx.textAlign = "center";
                           ctx.fillText(day, 109, 97)
