@@ -1677,7 +1677,7 @@ if(!message.channel.guild) return;
         
                           //دخولك الديسكورد
                           var day = `Since ${days.toFixed(0)} Day Ago`
-                          ctx.font = '24px Geneva';
+                          ctx.font = '22px Geneva';
                           ctx.fontSize = '20px';
                           ctx.fillStyle = "#ffffff";
                           ctx.textAlign = "center";
@@ -1695,7 +1695,7 @@ if(!message.channel.guild) return;
   
                         //دخولك السيرفر
                         var day2 = `Since  ${days1.toFixed(0)} Day Ago`
-                        ctx.font = '24px Geneva';
+                        ctx.font = '22px Geneva';
                         ctx.fontSize = '20px';
                         ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
