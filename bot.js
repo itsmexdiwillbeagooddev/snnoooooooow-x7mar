@@ -1677,7 +1677,7 @@ if(!message.channel.guild) return;
         
                           //دخولك الديسكورد
                           var day = `Since ${days.toFixed(0)} Day Ago`
-                          ctx.font = '27px Arial Bold';
+                          ctx.font = '27px Lucida Console';
                           ctx.fontSize = '25px';
                           ctx.fillStyle = "#ffffff";
                           ctx.textAlign = "center";
@@ -1695,20 +1695,20 @@ if(!message.channel.guild) return;
   
                         //دخولك السيرفر
                         var day2 = `Since  ${days1.toFixed(0)} Day Ago`
-                        ctx.font = '27px Arial Bold';
+                        ctx.font = '27px Lucida Console';
                         ctx.fontSize = '20px';
                         ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
                         ctx.fillText(day2, 388, 97); 
 
                         //ur name
-                        ctx.font = '27px BlowBrush';
+                        ctx.font = '27px Lucida Console';
                         ctx.fontSize = '30px';
                         ctx.fillStyle = "#FFFFFF";
                         ctx.textAlign = "center";
                         ctx.fillText(h.user.username, 245, 365);
                         //tag
-                        ctx.font = '27px Arial Bold';
+                        ctx.font = '27px Lucida Console';
                         ctx.fontSize = '45px';
                         ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
@@ -1725,7 +1725,7 @@ if(!message.channel.guild) return;
     } else if (h.presence.status === 'offline') {
         status = 'Offline';
     }
-                        ctx.font = '27px Arial Bold';
+                        ctx.font = '27px Lucida Console';
                         ctx.fontSize = '30px';
                         ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
