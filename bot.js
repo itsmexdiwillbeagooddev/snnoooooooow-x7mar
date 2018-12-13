@@ -1676,7 +1676,7 @@ if(!message.channel.guild) return;
             
         
                           //دخولك الديسكورد
-                          var day = `Since ${days.toFixed(0)} Day Ago`
+                          var day = `Since ${days.toFixed(0)} Day`
                           ctx.font = '22px Geneva';
                           ctx.fontSize = '20px';
                           ctx.fillStyle = "#ffffff";
@@ -1694,7 +1694,7 @@ if(!message.channel.guild) return;
   const days1 = millis1 / 1000 / 60 / 60 / 24;
   
                         //دخولك السيرفر
-                        var day2 = `Since  ${days1.toFixed(0)} Day Ago`
+                        var day2 = `Since ${days1.toFixed(0)} Day`
                         ctx.font = '22px Geneva';
                         ctx.fontSize = '20px';
                         ctx.fillStyle = "#ffffff";
@@ -1706,7 +1706,7 @@ if(!message.channel.guild) return;
                         ctx.fontSize = '30px';
                         ctx.fillStyle = "#FFFFFF";
                         ctx.textAlign = "center";
-                        ctx.fillText(h.user.username, 245, 365);
+                        ctx.fillText(h.user.username, 250, 365);
                         //tag
                         ctx.font = '27px Geneva';
                         ctx.fontSize = '45px';
@@ -1729,7 +1729,7 @@ if(!message.channel.guild) return;
                         ctx.fontSize = '30px';
                         ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
-                        ctx.fillText(`${status}`, 380, 450);
+                        ctx.fillText(`${status}`, 375, 450);
                         
                         //Avatar
                         let Avatar = Canvas.Image;
