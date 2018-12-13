@@ -54,6 +54,19 @@ console.log(`Logged in as  * [ "  Team #Snow Bot " ] servers! [ " ${client.guild
 
 });
 
+//ترحيب بالخاص
+client.on("guildMemberAdd", member => {
+    member.createDM().then(function (channel) {
+        return channel.send(`السلام عليكم :hearts: 
+انا **SnowBot ❄**
+ بوت إدارة - العاب - ترفيه 
+هدف البوت جعل الديسكورد اسهل بالنسبة لمستخمي البوت
+فريق البوت يشتغل يوميا على تطوير البوت و صيانته
+بحيث نستقبل كل إقتراحاتكم و آرائكم وانتقاداتكم  ب سيرفر الدعم , https://discord.gg/JhD7trr
+يمكنك إضافة البوت ل سيرفرك عن طريق الأمر التالي , [ **-invite** ]
+و تجربتي, إنشاء الله بعجبك... :sparkles:  `)
+    }).catch(console.error)
+})
 
 
 //adminsjust
