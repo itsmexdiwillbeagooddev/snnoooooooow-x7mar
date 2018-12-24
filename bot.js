@@ -600,8 +600,9 @@ message.channel.sendMessage('__**تـم إنـشاء روم كـتابـي**__')
 /*روم صوتي*/
 
 client.on("message", (message) => {
-if (message.content.startsWith(prefix + "cv")) {
-  if(!args[0]) return message.reply('**Please Write room Name ?** :snowflake: ');
+                        let args = message.content.split(" ").slice(1).join(" ")
+if(message.content.startsWith(prefix + 'cv')) {
+    if(!args) return ra3d.channel.send('**Please Write room Name ?** :snowflake:');
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'voice');
