@@ -180,8 +180,11 @@ if (!message.guild.roles.exists("name", "Support Team")) return message.channel.
             message.channel.send(`:white_check_mark: **Your ticket has been opened**  <#${c.id}> .`);
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
-                .addField(`مرحبا ${message.author.username}!`, `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون لدينا ** فريق الدعم ** قريباً لمساعدتك`)
-                .setTimestamp();
+                .addField(`مرحبا ${message.author.username}!`)
+                .setDescription(`اولا شكرا على على التواصل مع فريق الدعم الخاص بينا!`)
+	        .setDescription(`سيتم الرد على اسإلتك في أقرب وقت, ونتمنى ان تقوم بتقيدم شرح مفصل لمشكلتك/أسإلتك.`)
+                .setDescription(`و اي إستهزاء في فتح التذكر يمكن اي يتسبب بعقوبات لفاتح التذكرة.`)
+	    .setTimestamp();
             c.send({
                 embed: embed
             });
