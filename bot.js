@@ -617,12 +617,11 @@ client.on("message", message => {
     if(message.content === prefix + "image"){ 
         const embed = new Discord.RichEmbed()
 
-    .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
-.setAuthor(message.author.username, message.guild.iconrURL)
-  .setColor("#00FFFF")
+    .setTitle(`Server : **${message.guild.name}** `)
+  .setColor("#3de7ed")
   .setImage(message.guild.iconURL)
   .setURL(message.guild.iconrURL)
-                  .setTimestamp()
+.setFooter('SnowBot ❄' , client.user.avatarURL)
 
  message.channel.send({embed});
     }
