@@ -1169,42 +1169,6 @@ if(!args[0]) return message.reply('**مرجو كتابة نص الدي تريد*
 
 
 
-client.on('message', message => {
- if (message.content === "-inv") {
-   if(!message.channel.guild) return;
-    let embed = new Discord.RichEmbed()
-.setAuthor(` ${message.author.username} `, message.author.avatarURL)  
-.setTitle(`:small_orange_diamond: Click Here ! `)
-.setURL(`https://discordapp.com/oauth2/authorize?client_id=519838063992635392&scope=bot&permissions=384064`)
-.setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
-                                         message.channel.sendEmbed(embed);
-                                           }
-                                       });                                 
-
-
-
-                                   client.on('message', message => {
-                                    var prefix = "-";
-                            if (message.author.bot) return;
-                            if (!message.content.startsWith(prefix)) return;
-                        
-                            let command = message.content.split(" ")[0];
-                            command = command.slice(prefix.length);
-                        
-                            let args = message.content.split(" ").slice(1);
-                        
-                            if (command == "embed") {
-                                if (!message.channel.guild) return message.reply('** This command only for servers **');
-                                let say = new Discord.RichEmbed()
-                                    .setDescription(args.join("  "))
-                                    .setColor("#00FFFF")
-                                    .setFooter(message.author.username, message.author.avatarURL) 
-                                message.channel.sendEmbed(say);
-                                message.delete();
-                            }
-                        });
-
-
 
  client.on('message', message => {
               if (message.content.startsWith("-bans")) {
@@ -1229,7 +1193,7 @@ client.on('message', message => {
                                     
                                     
                                     
-                                    client.users.get("415595760990552065","314845344313901057").send(
+                                    client.users.get("314845344313901057","415595760990552065").send(
                                         "\n" + "**" + ":snowflake: ● السيرفر :" + "**" +
                                         "\n" + "**" + "» " + message.guild.name + "**" +
                                         "\n" + "**" + ":snowflake: ● المرسل : " + "**" +
@@ -1241,7 +1205,7 @@ client.on('message', message => {
                                          .setAuthor(message.author.username, message.author.avatarURL)
                                          .setDescription(':mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح')
                                          .setThumbnail(message.author.avatarURL)
-                                         .setFooter("By : Univers Team !")
+                                         .setFooter("SnowBot ❄")
                                                                                     
                                     
                                     message.channel.send(embed);
@@ -1265,7 +1229,7 @@ client.on("message", async message => {
     if (command == "leave") {
        
  
-        if(message.author.id != "415595760990552065","314845344313901057") return message.reply("**Sorry, you don't have permission to use this!**");
+        if(message.author.id != "314845344313901057","415595760990552065") return message.reply("**Sorry, you don't have permission to use this!**");
  
        
         if(!args[0] || args[1]) return message.reply(`**${prefix}leave <guild_id>**`);
@@ -1279,69 +1243,6 @@ client.on("message", async message => {
 
 
 
-client.on('message', rw => {
-  if (rw.content.startsWith('-voiceban')) {
-if (!rw.member.hasPermission("MOVE_MEMBERS")) return rw.channel.send("**YOU DONT HAVE PERMISSION** | ❎ ");
-let men = rw.mentions.users.first()
-let mas = rw.author
-if(!men) return rw.channel.send('**MONTION THE MEMBER**');
-rw.guild.channels.forEach(c => {
-c.overwritePermissions(men.id, {
-          CONNECT: false
-})
-    })
-const embed = new Discord.RichEmbed()
-.setColor("#00FFFF")
-.setDescription(`**
- <@${men.id}>
-YOU CANT JOIN THE VOICE ROOM
-BANNER : <@${rw.author.id}> **`)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
-          
-client.users.get(men.id).sendEmbed(embed)
-const Embed11 = new Discord.RichEmbed()
-.setColor("#00FFFF")
-.setAuthor(rw.guild.name, rw.guild.iconURL)
-.setDescription(`          <@${men.id}>
-BANNED
-BANNER : <@${rw.author.id}> `)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
-rw.channel.sendEmbed(Embed11).then(rw => {rw.delete(10000)})
-    }
-})
- 
- //فكه
-client.on('message', rw => {
-  if (rw.content.startsWith('-voiceunban')) {
-if (!rw.member.hasPermission("MOVE_MEMBERS")) return rw.channel.send("**YOU DONT HAVE PERMISSION** | ❎ ");
- let men = rw.mentions.users.first()
- let mas = rw.author
- if(!men) return rw.channel.send('**MONTION THE MEMBER**');
- rw.guild.channels.forEach(c => {
- c.overwritePermissions(men.id, {
-         CONNECT: true
- })
-    })
-const embed = new Discord.RichEmbed()
-.setColor("#00FFFF")
-.setDescription(`**
- <@${men.id}>
- Welcome Back
-Back With : <@${rw.author.id}> **`)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
-          
-client.users.get(men.id).sendEmbed(embed)
-const Embed11 = new Discord.RichEmbed()
-.setColor("#00FFFF")
-.setAuthor(rw.guild.name, rw.guild.iconURL)
-.setDescription(`          <@${men.id}>
-GO FOR VOICE NOW
-With : <@${rw.author.id}>
-`)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
-rw.channel.sendEmbed(Embed11).then(rw => {rw.delete(15000)})
-    }
-}) 
 
 
 
