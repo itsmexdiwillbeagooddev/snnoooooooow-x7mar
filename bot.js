@@ -1435,11 +1435,11 @@ client.on('message', message => {
     if(message.content == '-members') {
     const embed = new Discord.RichEmbed()
     .setDescription(`**Server Members Stats**
-<:online:525094410460069928> Online :   **${message.guild.members.filter(m=>m.presence.status == 'online').size}
-** <:dnd:525094410300686357> DND :    **   ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
-** <:idle:525094411130896420> Idle :     ** ${message.guild.members.filter(m=>m.presence.status == 'idle').size}   
-** <:offline:525094410485235712> Offline :  ** ${message.guild.members.filter(m=>m.presence.status == 'offline').size} 
-** :Members: Members COunt: ** ${message.guild.memberCount}**`)   
+:online:525094410460069928: Online :   **${message.guild.members.filter(m=>m.presence.status == 'online').size}
+** :dnd:525094410300686357: DND :    **   ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+** :idle:525094411130896420: Idle :     ** ${message.guild.members.filter(m=>m.presence.status == 'idle').size}   
+** :offline:525094410485235712: Offline :  ** ${message.guild.members.filter(m=>m.presence.status == 'offline').size} 
+** :Members:274789150354440193: Members COunt: ** ${message.guild.memberCount}**`)   
          message.channel.send({embed});
     }
 });
