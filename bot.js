@@ -1435,11 +1435,11 @@ client.on('message', message => {
     if(message.content == '-members') {
     const embed = new Discord.RichEmbed()
     .setDescription(`**Server Members Stats**
-<:online:525094410460069928> Online :   **${message.guild.members.filter(m=>m.presence.status == 'online').size}
-** <:dnd:525094410300686357> DND :    **   ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
-** <:idle:525094411130896420> Idle :     ** ${message.guild.members.filter(m=>m.presence.status == 'idle').size}   
-** <:offline:525094410485235712> Offline :  ** ${message.guild.members.filter(m=>m.presence.status == 'offline').size} 
-** <:Members:274789150354440193> Members COunt: ** ${message.guild.memberCount}**`)   
+Online :   **${message.guild.members.filter(m=>m.presence.status == 'online').size}
+** DND :    **   ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+** Idle :     ** ${message.guild.members.filter(m=>m.presence.status == 'idle').size}   
+** Offline :  ** ${message.guild.members.filter(m=>m.presence.status == 'offline').size} 
+** Members COunt: ** ${message.guild.memberCount}**`)   
          message.channel.send({embed});
     }
 });
@@ -1450,21 +1450,20 @@ client.on('message', message => {
 
 
 client.on('message', message => { 
-let prefix = '='
+let prefix = '-'
     if (message.content.startsWith(prefix + 'elist')) {
 
         const List = message.guild.emojis.map(e => e.toString()).join(" ");
 
         const EmojiList = new Discord.RichEmbed()
-            .setTitle('➠ Emojis') 
+            .setTitle('Emojis') 
             .setAuthor(message.guild.name, message.guild.iconURL) 
-            .setColor('#00FFFF') 
+            .setColor('RANDOM') 
             .setDescription(List) 
             .setFooter(message.guild.name) 
         message.channel.send(EmojiList) 
     }
 });
-
 
 
 
@@ -1523,7 +1522,7 @@ client.on('message', message => {
     if (message.content.startsWith("رابط")) {
         message.channel.createInvite({
         thing: true,
-        maxUses: 1,
+        maxUses: 5,
         maxAge: 3600,
     }).then(invite =>
       message.author.sendMessage(invite.url)
@@ -1539,7 +1538,7 @@ client.on('message', message => {
               const Embed11 = new Discord.RichEmbed()
         .setColor("#00FFF")
         
-    .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 1 **")
+    .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 5 **")
       message.author.sendEmbed(Embed11)
     }
 }); 
