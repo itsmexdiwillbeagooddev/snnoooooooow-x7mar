@@ -1694,7 +1694,7 @@ var Canvas = require('canvas')
 //mutechannel
 client.on('message', message => {
 
-    if (message.content === ".mutechannel") {
+    if (message.content === "-mutechannel") {
                         if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
@@ -1705,7 +1705,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' لي
            });
              }
 //unmutechannel
-if (message.content === ".unmutechannel") {
+if (message.content === "-unmutechannel") {
     if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('انت لا تمتلك الصلاحيات الكافية.');
