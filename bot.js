@@ -198,9 +198,9 @@ client.on('ready', () => {
 
 client.on('message', message => {      
         if (message.content.startsWith('-clear')) {
-            if(!message.channel.guild) return message.reply('⛔ | This Command For Servers Only!');
-                if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('⛔ | You dont have **MANAGE_MESSAGES** Permission!');
-                if(!message.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return message.channel.send('⛔ | I dont have **MANAGE_MESSAGES** Permission!');
+            if(!message.channel.guild) return message.reply(' This Command For Servers Only!');
+                if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('You dont have **MANAGE_MESSAGES** Permission!');
+                if(!message.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return message.channel.send(' I dont have **MANAGE_MESSAGES** Permission!');
          let args = message.content.split(" ").slice(1)
             let messagecount = parseInt(args);
             if (args > 1000) return message.reply("** يجب ان يكون عدد المسح أقل من 1000 .**").then(messages => messages.delete(5000))
@@ -597,32 +597,6 @@ if(!message.channel.guild) return;
 
 
 
-/*روم كتابي*/
-
-client.on("message", (message) => {
-if (message.content.startsWith(prefix + "ct")) {
-  if(!args[0]) return message.reply('**Please Write room Name ?** :snowflake: ');  
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-        let args = message.content.split(" ").slice(1);
-    message.guild.createChannel(args.join(' '), 'text');
-message.channel.sendMessage('__**تـم إنـشاء روم كـتابـي**__')
-
-}
-});
-
-/*روم صوتي*/
-
-client.on("message", (message) => {
-                        let args = message.content.split(" ").slice(1).join(" ")
-if(message.content.startsWith(prefix + 'cv')) {
-    if(!args) return ra3d.channel.send('**Please Write room Name ?** :snowflake:');
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-        let args = message.content.split(" ").slice(1);
-    message.guild.createChannel(args.join(' '), 'voice');
-    message.channel.sendMessage('__**تـم إنـشاء روم صـوتي**__')
-    
-}
-});
 
 
 
@@ -882,7 +856,7 @@ client.on("message", async message => {
         if(message.content.startsWith(prefix + 'invite-codes')) {
 let guild = message.guild
 var codes = [""]
-message.channel.send(":postbox: **لقد قمت بأرسال جميع روابط الدعوات التي قمت بأنشائها في الخاص**")
+message.channel.send(":postbox: **تم إرسال جميع روابط الدعوات التي قمت بأنشائها في الخاص**")
 guild.fetchInvites()
 .then(invites => {
 invites.forEach(invite => {
@@ -1125,11 +1099,11 @@ let embed = new Discord.RichEmbed()
                                    });
 
                     client.on('message', message => {
-                                        if (message.content === "-sup") {
+                                        if (message.content === "-support") {
                                         let embed = new Discord.RichEmbed()
                                      .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
                                      .setColor("#00FFFF")
-                                     .addField(" ** :snowflake: Server Support :snowflake: **" , "  **https://discord.gg/mP3AxB7**")
+                                     .addField(" ** :snowflake: Server Support **" , "  **https://discord.gg/mP3AxB7**")
                                         
                                         
                                      message.channel.sendEmbed(embed);
@@ -1164,7 +1138,7 @@ let embed = new Discord.RichEmbed()
  client.on('message', message => {
               if (message.content.startsWith("-bans")) {
          message.guild.fetchBans()
-      .then(bans => message.channel.send(`__** ${bans.size} **__ **عدد اشخاص المبندة من السيرفر** `))
+      .then(bans => message.channel.send(`There is __** ${bans.size} **__ **Bans in this server** `))
           .catch(console.error);
                                     }
                                     });
@@ -1207,14 +1181,6 @@ let embed = new Discord.RichEmbed()
                                     }); 
 
 
-
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`**:rose:  **ولكم نورت السيرفر** :rose: 
-:snowflake: **اسم العضو ** ${member}:snowflake:  
-انت العضو رقم ${member.guild.memberCount} **`) 
-}).catch(console.error)
-})
 
 
 
@@ -1310,85 +1276,6 @@ rw.channel.sendEmbed(Embed11).then(rw => {rw.delete(15000)})
 
 
 
-client.on('message',function(message) {
-	let prefix = "-";
-let args = message.content.split(" ").slice(1).join(" ");
-if(message.content.startsWith(prefix + "say")) {
-if(!args) return;
-message.channel.send(`**» ${args}**`); // محطوط # عشان محد يستخدم البوت لتبنيد / طرد احد من السيرفر
-}
-});
-
-
-client.on("message", (message) => {
-if (message.content.startsWith("-ct")) {
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-        let args = message.content.split(" ").slice(1);
-    message.guild.createChannel(args.join(' '), 'text');
-message.channel.sendMessage(' :snowflake: **تـم إنـشاء روم كـتابـي**')
-
-}
-});
-
-
-client.on("message", (message) => {
-if (message.content.startsWith("-cv")) {
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-        let args = message.content.split(" ").slice(1);
-    message.guild.createChannel(args.join(' '), 'voice');
-    message.channel.sendMessage(' :snowflake: **تـم إنـشاء روم صـوتي**')
-    
-}
-})
-
-
-
-client.on('message', message => {
-    if (message.content === 'هاي') {
-        message.reply('♪ هــأايات أطلـَـق ولكــم☆');
-      }
-});
-
-
-
-
-client.on('message', message => {
-    if (message.content === '....') {
-        message.reply('♪أطلـَـق من نقط, يلــبى بس ☆');
-      }
-});
-
-
-client.on('message', message => {
-    if (message.content === '...') {
-        message.reply('♪أطلـَـق من نقط, يلــبى بس ☆');
-      }
-});
-
-
-client.on('message', message => {
-    if (message.content === '..') {
-        message.reply('♪أطلـَـق من نقط, يلــبى بس ☆');
-      }
-});
-
-client.on('message', message => {
-    if (message.content === '.') {
-        message.reply('♪أطلـَـق من نقط, يلــبى بس ☆');
-      }
-});
-
-
-client.on("message", (message) => {
-    if (message.content.startsWith('-delet')) {
-        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-
-        let args = message.content.split(' ').slice(1);
-        let channel = message.client.channels.find('name', args.join(' '));
-        if (!channel) return message.reply('**There is no room like this name -_-**').catch(console.error);
-        channel.delete()
-    }
-}); 
 
 
 
@@ -1689,14 +1576,13 @@ client.on("message", message => {
    **
    **-id**
  💠 معلومات عن حسابك
-   **-embed**
-💠 يكرر كلامك بمبيد
    **-sug**
-💠 الإقتراحات
+💠 الإقتراحات 
+يتطلب وجود رووم بإسم [ suggestions ]
    **-emoji** 
-💠 يعطيك ايوجيات على حسب الكاتبة الي كتبتها
+💠 يحول كلامك إلى إيموجيات
    **-bans**
-💠 عدد الاشخاص المتبندة من السيرفر
+💠 مجوع عدد الأشخاص المحضورين من السيرفر
    **-server** 
 💠 معلومات عن السيرفر
    **-image **
@@ -1704,7 +1590,7 @@ client.on("message", message => {
    **-avatar** 
 💠 يعرض صورتك او صوره شخص
    **-elist** 
-💠يعطيك كل اموجيات السيرفر
+💠 يعطيك كل اموجيات السيرفر
    **-invites** 
 💠 يعرض كم ضياف 
    **-topinv **
@@ -1712,7 +1598,7 @@ client.on("message", message => {
    **-contact** 
 💠 ارسال رسلة الى صاحب البوت او اقتراح
    **-count** 
-💠 عدد الاعضاء
+💠 عدد الاعضاء السيرفر
    **-channel **
 💠يعطيك معلومات الروم 
    **-members** 
@@ -1771,15 +1657,6 @@ client.on("message", message => {
    }
    });  
 
-client.on('message', message => {
-     if (message.content === (prefix + "help")) {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#00FFFF")
-  .addField("Done" , " تــــم ارســالك في الخــاص")
-  message.channel.sendEmbed(embed);
-    }
-});
 
 
 
