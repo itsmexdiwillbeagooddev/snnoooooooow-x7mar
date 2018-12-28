@@ -1200,19 +1200,7 @@ if (message.content === "-support") {
 let embed = new Discord.RichEmbed()
 .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
 .setColor("#00FFFF")
-.addField(" ** :snowflake: Server Support :snowflake: **" , "  **https://discord.gg/mP3AxB7**")
-                                        
-                                        
-                                     message.channel.sendEmbed(embed);
-                                       }
-                                   });
-
-                    client.on('message', message => {
-                                        if (message.content === "-support") {
-                                        let embed = new Discord.RichEmbed()
-                                     .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
-                                     .setColor("#00FFFF")
-                                     .addField(" ** :snowflake: Server Support **" , "  **https://discord.gg/mP3AxB7**")
+.addField(" **  Server Support :snowflake: **" , "  **https://discord.gg/zA5T2n*")
                                         
                                         
                                      message.channel.sendEmbed(embed);
@@ -1772,8 +1760,8 @@ client.on("message", message => {
    });  
 
 client.on('message', msg => {
-  if (msg.content === '-support') {
-    msg.reply('https://discord.gg/zA5T2n ❄');
+  if (msg.content === '<@519838063992635392>') {
+    msg.reply('My Prefix Is [ **-** ] , Typ **-help** For More Info. ❄');
   }
 });
 
