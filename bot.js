@@ -177,7 +177,7 @@ if (!message.guild.roles.exists("name", "Support Team")) return message.channel.
                 SEND_MESSAGES: true,
                 READ_MESSAGES: true
             });
-            message.channel.send(`:white_check_mark: **Your ticket has been opened  #${c.name} **`);
+            message.channel.send(`:white_check_mark: **Your ticket has been opened**  <#${c.id}> **`);
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
                 .addField(`مرحبا ${message.author.username}!`, `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون لدينا ** فريق الدعم ** قريباً لمساعدتك`)
