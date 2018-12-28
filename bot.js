@@ -1002,7 +1002,7 @@ if (message.content.startsWith(prefix + 'perms')) {
          .setColor('#00FFFF')
          .setTitle(':snowflake: Permissions')
          .addField('Your Permissions:',perms)
-                  message.channel.send(embed:zPeRms);
+                  message.channel.send({embed:zPeRms});
 
     }
 });
