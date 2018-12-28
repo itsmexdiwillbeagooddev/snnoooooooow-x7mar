@@ -160,8 +160,7 @@ client.on('guildCreate', guild => {
 client.on("message", (message) => {
    if (message.content.startsWith(prefix + "new")) {     
         const reason = message.content.split(" ").slice(1).join(" ");     
-           if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-	   if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`:flag_sa:  : هذا السيرفر لا يحتوي على رتبة  **Support Team**/nفلهاذا السبب لايمكن فتح التذكرة.\nإذا كنت إداري, قم بصنع رتبه جديدة بالإسم المذكور اعلاه و اعطها للأشخاص الذي تريدهم رأية التذكرة كفريق للدعم. `); 
+           if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(` :flag_us:  This server doesn't have a **Support Team**  role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.:flag_sa:`,`  : هذا السيرفر لا يحتوي على رتبة  **Support Team**/nفلهاذا السبب لايمكن فتح التذكرة.\nإذا كنت إداري, قم بصنع رتبه جديدة بالإسم المذكور اعلاه و اعطها للأشخاص الذي تريدهم رأية التذكرة كفريق للدعم. `);
            if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`**انت فاتح تذكرة من قبل. :x:**`);    /// ALPHA CODES
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Support Team");
