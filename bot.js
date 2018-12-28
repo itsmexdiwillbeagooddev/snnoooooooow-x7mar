@@ -312,10 +312,10 @@ client.on('message', message => {
                 if(!message.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return message.channel.send(' I dont have **MANAGE_MESSAGES** Permission!');
          let args = message.content.split(" ").slice(1)
             let messagecount = parseInt(args);
-            if (args > 1000) return message.reply("** يجب ان يكون عدد المسح أقل من 1000 .**").then(messages => messages.delete(5000))
-            if(!messagecount) args = '1000';
+            if (args > 100) return message.reply("** يجب ان يكون عدد المسح أقل من 100 .**").then(messages => messages.delete(5000))
+            if(!messagecount) args = '100';
             message.channel.fetchMessages({limit: messagecount + 1}).then(messages => message.channel.bulkDelete(messages));
-            message.channel.send(`\`${args}\` : __عدد الرسائل التي تم مسحها __ `).then(messages => messages.delete(5000));
+            message.channel.send(`\`${args}\` : __عدد الرسائل التي تم مسحها__ `).then(messages => messages.delete(5000));
           }
           });
 
@@ -1591,9 +1591,9 @@ client.on("message", message => {
 💠 طرد العضو من الروم
    **-clear** 
 💠 لمسح الشات بعدد او بدون
-   **-closechannel **
+   **-mutechannel **
 💠 قفل المحادثة في الروم
-   **-openchannel**
+   **-unmutechannel**
 💠 فتح المحادثة في الروم
    **-showchannel**
 💠 لأظهار الروم عن اعضاء السيرفر
@@ -1686,6 +1686,47 @@ SnowBot ❄
    });
 
 var Canvas = require('canvas')
+
+
+
+
+
+//mutechannel
+client.on('message', message => {
+
+    if (message.content === ".mutechannel") {
+                        if(!message.channel.guild) return message.reply(' This command only for servers');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+           }).then(() => {
+               message.reply("**تم قفل الشات** ✅ ")
+           });
+             }
+//unmutechannel
+if (message.content === ".unmutechannel") {
+    if(!message.channel.guild) return message.reply(' This command only for servers');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('انت لا تمتلك الصلاحيات الكافية.');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("**تم فتح الشات **✅")
+           });
+             }
+
+
+
+});
+
+
+
+
+
+
+
 
 
 client.on('message', message => {
