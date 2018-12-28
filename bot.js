@@ -36,8 +36,8 @@ var ti={}
 
 //streaming dl bot
 client.on('ready', () => {
-    client.user.setStatus("Idle");
-    client.user.setActivity("-help | SnowBot❄ | Beta ",{type: 'Playing'})
+    client.user.setStatus("IDLE");
+    client.user.setActivity("SnowBot❄ | Open Beta ",{type: 'PLAYING'})
 
 });
 
