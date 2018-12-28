@@ -1703,10 +1703,24 @@ client.on("message", message => {
    **-count** 
 💠 عدد الاعضاء السيرفر
    **-channel **
-💠يعطيك معلومات الروم 
+💠 يعطيك معلومات الروم  
    **-members** 
 💠 معلومات عن الاعضاء
    **
+   **-new**
+💠 لفتح تذكرة بهدف التواصل مع الإدارة.
+   `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });  
+
+client.on("message", message => {
+    if (message.content === (prefix + "help")) {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FFFF")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`**
    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
            ***Administrative Commands*** :snowflake:
    **
@@ -1759,7 +1773,6 @@ client.on("message", message => {
    
    }
    });  
-
 
 
 
