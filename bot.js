@@ -1189,7 +1189,7 @@ let embed = new Discord.RichEmbed()
  client.on('message', message => {
               if (message.content.startsWith("-bans")) {
          message.guild.fetchBans()
-      .then(bans => message.channel.send(`There is __** ${bans.size} **__ **Bans in this server** `))
+      .then(bans => message.channel.send(`**There is** __**${bans.size}**__ **Bans in this server** `))
           .catch(console.error);
                                     }
                                     });
