@@ -1431,24 +1431,20 @@ msg.delete();
 
 
 
-
-
-
 client.on('message', message => {
-    if (!message.channel.guild) return;
-if(message.content =='-members')
-var IzRo = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.setFooter(message.author.username, message.author.avatarURL) 
-.setTitle(' Server Members Stats')
-.addField('📗| Online : `${message.guild.members.filter(m=>m.presence.status == 'online').size}` ')
-.addField('📕| DND : `${message.guild.members.filter(m=>m.presence.status == 'dnd').size}` ')
-.addField('📙| Idle : `${message.guild.members.filter(m=>m.presence.status == 'idle').size}` ')
-.addField('📓| Offline : `${message.guild.members.filter(m=>m.presence.status == 'offline').size}` ')
-.addField('➡| Server Members : `${message.guild.memberCount}` ')
-message.channel.send(IzRo);
-
+    if(message.content == '-members') {
+    const embed = new Discord.RichEmbed()
+    .setDescription(`**Server Members Stats**
+Online :   **${message.guild.members.filter(m=>m.presence.status == 'online').size}
+**DND :    **   ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+**Idle :     ** ${message.guild.members.filter(m=>m.presence.status == 'idle').size}   
+**Offline :  ** ${message.guild.members.filter(m=>m.presence.status == 'offline').size} 
+**Members COunt: ** ${message.guild.memberCount}**`)   
+         message.channel.send({embed});
+    }
 });
+
+
 
 
 
