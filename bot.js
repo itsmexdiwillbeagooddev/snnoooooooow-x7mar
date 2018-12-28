@@ -1167,19 +1167,6 @@ if(!args[0]) return message.reply('**مرجو كتابة نص الدي تريد*
 });
 
 
-   client.on('message', message => {
-                    if (message.content === "-invite") {
-                       if(!message.channel.guild) return;
-                        let embed = new Discord.RichEmbed()
-  .setAuthor(` ${message.author.username} `, message.author.avatarURL)  
- .setTitle(`:small_orange_diamond: Click Here ! `)
- .setURL(`https://discordapp.com/oauth2/authorize?client_id=519838063992635392&scope=bot&permissions=384064`)
- .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
-                                         message.channel.sendEmbed(embed);
-                                           }
-                                       });
-
-
 
 
 client.on('message', message => {
@@ -1193,18 +1180,6 @@ client.on('message', message => {
                                          message.channel.sendEmbed(embed);
                                            }
                                        });                                 
-
-   client.on('message', message => {
-if (message.content === "-support") {
-let embed = new Discord.RichEmbed()
-.setAuthor(` ${message.author.username} `, message.author.avatarURL)  
-.setColor("#00FFFF")
-.addField(" **  Server Support :snowflake: **" , "  **https://discord.gg/zA5T2n*")
-                                        
-                                        
-                                     message.channel.sendEmbed(embed);
-                                       }
-                                   });
 
 
 
@@ -1756,6 +1731,13 @@ client.on("message", message => {
    
    }
    });  
+
+client.on('message', msg => {
+  if (msg.content === '-support') {
+    msg.reply('https://discord.gg/zA5T2n ❄');
+  }
+});
+
 
 client.on('message', msg => {
   if (msg.content === '<@519838063992635392>') {
