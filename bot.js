@@ -93,7 +93,58 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 });
 
 
+//suggestions
 
+ client.on('message', message => {
+if(message.content.startsWith(prefix +'sug')) {
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+      const A8tra7Room = message.guild.channels.find("name", "suggestions")
+      if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات `);
+   let a8tra7 = message.content.split(' ').slice(1).join(' ')
+   var m8tr7 = message.author.id
+if(!message.guild.channels.find("name","suggestions")) return message.channel.send('يجب إنشاء رووم بإسم :  \`suggestions \`')
+   var ThxForSug = new Discord.RichEmbed()
+      .setColor('WHITE')
+   .setTitle(`✅ Success!`)
+   .setTimestamp()
+   .setDescription(`**شكراً على اقتراحك !**`)
+.setDescription(`**Your Suggestion** : ${a8tra7}`)
+   var Sure = new Discord.RichEmbed()
+   .setTimestamp()
+      .setColor('WHITE')
+   .setTitle(`**هل انت متأكد من ارسال الاقتراح؟ معك دقيقه قبل الالغاء**`)               
+.setDescription(`Suggestion : **${a8tra7}**`)
+		 .setFooter('SnowBot ❄' , client.user.avatarURL)
+message.channel.sendEmbed(Sure).then(msg => {
+    msg.react('❎')
+.then(() => msg.react('✅'))
+
+let YesFilter = (reaction, user) => reaction.emoji.name === '✅'  && user.id === message.author.id;
+let NoFilter = (reaction, user) => reaction.emoji.name === '❎' && user
+=== message.author.id;
+
+let Yes = msg.createReactionCollector(YesFilter, { time: 60000 });
+let No = msg.createReactionCollector(NoFilter, { time: 60000 });
+
+Yes.on("collect", r => {
+   var ala8tra7 = new Discord.RichEmbed()
+   .setTimestamp()
+   .setColor('GOLD')
+   .setThumbnail(message.author.avatarURL)
+   .setTitle(`New Suggestion :bell:`)
+   .setDescription(`From : __<@${m8tr7}>__\n\nSuggestion: **${a8tra7}**`)
+   .setFooter(`${message.author.username}#${message.author.discriminator}`)
+   A8tra7Room.send(ala8tra7)
+   message.channel.sendEmbed(ThxForSug).then(message => {message.delete(6000)})
+msg.delete();
+})
+No.on("collect", r => {
+message.channel.send('**تم الغاء اقتراح بنجاح ✅ **').then(message => {message.delete(4000)})
+msg.delete();
+})
+})
+}			     
+});                        
 
 //thanks
 client.on('guildCreate', guild => {
