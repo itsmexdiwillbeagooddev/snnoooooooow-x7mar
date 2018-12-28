@@ -1674,7 +1674,7 @@ client.on("message", message => {
 ┃╰━╯┃┃┃┃╰╯┣╮╭╮╭┫╰━╯┃╰╯┃╰╮
 ╰━━━┻╯╰┻━━╯╰╯╰╯╰━━━┻━━┻━╯
    **
-   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+   **-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-**
            ***General Commands*** :snowflake:
    **
    **-id**
@@ -1721,7 +1721,7 @@ client.on("message", message => {
          .setColor("#00FFFF")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`**
-   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-**
            ***Administrative Commands*** :snowflake:
    **
    **-move [user] ** 
