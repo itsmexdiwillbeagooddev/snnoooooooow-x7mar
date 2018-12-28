@@ -154,6 +154,64 @@ client.on('guildCreate', guild => {
         guild.owner.send(embed)
   });
 
+// Ticket CMD
+
+
+client.on("message", (message) => {
+   if (message.content.startsWith(prefix + "new")) {     
+        const reason = message.content.split(" ").slice(1).join(" ");     
+        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
+        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`**انت فاتح تذكرة من قبل. :x:**`);    /// ALPHA CODES
+        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+            let role = message.guild.roles.find("name", "Support Team");
+            let role2 = message.guild.roles.find("name", "@everyone");
+            c.overwritePermissions(role, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });    /// ALPHA CODES
+            c.overwritePermissions(role2, {
+                SEND_MESSAGES: false,
+                READ_MESSAGES: false
+            });
+            c.overwritePermissions(message.author, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });
+            message.channel.send(`:white_check_mark: **تم فتح التذكرة #${c.name} **`);
+            const embed = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .addField(`مرحبا ${message.author.username}!`, `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون لدينا ** فريق الدعم ** قريباً لمساعدتك`)
+                .setTimestamp();
+            c.send({
+                embed: embed
+            });
+        }).catch(console.error);
+    }
+ 
+ 
+  if (message.content.startsWith(prefix + "close")) {
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`**لا يمكن إستعمال هذا الأمر خارج رووم التذكرة!. :x: **`);
+ 
+        message.channel.send(`**هل أنت واثق؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!  للتأكيد, اكتتب \`confirm\`
+سوف ينتهي المهلة خلال 10 ثوانٍ ويتم إلغاؤها**.`)
+            .then((m) => {
+                message.channel.awaitMessages(response => response.content === 'confirm', {
+                        max: 1,
+                        time: 10000,
+                        errors: ['time'],
+                    })    /// ALPHA CODES
+                    .then((collected) => {
+                        message.channel.delete();
+                    })    /// ALPHA CODES
+                    .catch(() => {
+                        m.edit('إنتهى الوقت, لم بتم إغلاق التذكرة.').then(m2 => {
+                            m2.delete();
+                        }, 3000);
+                    });
+            });
+    }
+ 
+});
 
 //ping
 client.on('message', message => {
