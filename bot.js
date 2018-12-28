@@ -1704,7 +1704,6 @@ client.on("message", message => {
     if (message.content === (prefix + "help")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#00FFFF")
-         .setThumbnail(message.author.avatarURL)
          .setDescription(`**
    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-**
            ***Administrative Commands*** :snowflake:
@@ -1771,17 +1770,41 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed() 
       .setColor("##db0f3e")
       .setDescription(`
-Invite Link : http://bit.ly/2BZF6eX
-Prince Bot✨
+Invite Link : http://bit.ly/2rX7IPR
+SnowBot ❄
  `)
    message.channel.sendEmbed(embed)
     
    }
    });
 
+client.on("message", message => {
+	var prefix = ".";
+  if (message.content === "-add") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("##db0f3e")
+      .setDescription(`
+Invite Link : http://bit.ly/2rX7IPR
+SnowBot ❄
+ `)
+   message.channel.sendEmbed(embed)
+    
+   }
+   });
 
-
-
+client.on("message", message => {
+	var prefix = ".";
+  if (message.content === "-inv") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("##db0f3e")
+      .setDescription(`
+Invite Link : http://bit.ly/2rX7IPR
+SnowBot ❄
+ `)
+   message.channel.sendEmbed(embed)
+    
+   }
+   });
 
 var Canvas = require('canvas')
 
