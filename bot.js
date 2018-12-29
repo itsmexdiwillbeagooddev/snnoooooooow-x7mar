@@ -645,7 +645,6 @@ m.sendMessage(args)
 
 client.on('message', message => {
   if(message.content.includes('discord.gg')){
-                                          if(!message.channel.guild) return message.reply('** advertising me on DM ? :thinking:   **');
       if (!message.member.hasPermissions(['ADMINISTRATOR'])){
       message.delete()
   return message.reply(`** Not allowed to advertising Here :angry: ! **`)
